@@ -1,7 +1,10 @@
 package com.yzn.accounts.service;
 
+import com.yzn.accounts.dto.AccountsDTO;
 import com.yzn.accounts.dto.CustomerDTO;
 import com.yzn.accounts.exception.CustomerAlreadyExistsException;
+import com.yzn.accounts.exception.ResourceNotFoundException;
+import com.yzn.accounts.mapper.AccountsMapper;
 import com.yzn.accounts.mapper.CustomerMapper;
 import com.yzn.accounts.model.Accounts;
 import com.yzn.accounts.model.Customer;
@@ -10,6 +13,7 @@ import com.yzn.accounts.repository.CustomerRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 @Service
@@ -28,6 +32,8 @@ public class AccountsService {
             throw new CustomerAlreadyExistsException("Customer with mobile number " + customer.getMobileNumber() + " already exists");
         }
 
+        customer.setCreatedAt(LocalDateTime.now());
+        customer.setCreatedBy("Admin");
         Customer savedCustomer = customerRepository.save(customer);
 
         accountsRepository.save(createAccount(savedCustomer));
@@ -41,7 +47,24 @@ public class AccountsService {
         account.setAccountNumber(accNumber);
         account.setAccountType("Savings");
         account.setBranchAddress("Amman, Jordan");
+
+        account.setCreatedAt(LocalDateTime.now());
+        account.setCreatedBy("Admin");
+
         return account;
     }
 
+    public CustomerDTO getAccountDetails(String mobileNumber) {
+
+    Customer customer = customerRepository.findByMobileNumber(mobileNumber)
+            .orElseThrow(() -> new ResourceNotFoundException("Customer", "Mobile Number", mobileNumber));
+
+    Accounts account = accountsRepository.findByCustomerId(customer.getCustomerId())
+            .orElseThrow(() -> new ResourceNotFoundException("Account", "Customer Id", customer.getCustomerId().toString()));
+
+    CustomerDTO customerDTO = CustomerMapper.mapToCustomerDto(customer, new CustomerDTO());
+    customerDTO.setAccountsDTO(AccountsMapper.mapToAccountsDto(account, new AccountsDTO()));
+
+    return customerDTO;
+    }
 }

@@ -26,4 +26,12 @@ public class AccountsController {
     }
 
 
+    @GetMapping("/details")
+    public ResponseEntity<CustomerDTO> getAccountDetails(@RequestParam("mobileNumber") String mobileNumber) {
+
+        CustomerDTO customerDTO = accountsService.getAccountDetails(mobileNumber);
+        return ResponseEntity.status(HttpStatus.OK).body(customerDTO);
+
+    }
+
 }
