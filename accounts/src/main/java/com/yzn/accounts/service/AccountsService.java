@@ -85,7 +85,6 @@ public class AccountsService {
            CustomerMapper.mapToCustomer(customerDTO, customer);
            customer = customerRepository.save(customer);
 
-           CustomerDTO customerDto = CustomerMapper.mapToCustomerDto(customer, new CustomerDTO());
        }
        return customerDTO;
     }
