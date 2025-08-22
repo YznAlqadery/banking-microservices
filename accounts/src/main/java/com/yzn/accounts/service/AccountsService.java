@@ -34,8 +34,7 @@ public class AccountsService {
             throw new CustomerAlreadyExistsException("Customer with mobile number " + customer.getMobileNumber() + " already exists");
         }
 
-        customer.setCreatedAt(LocalDateTime.now());
-        customer.setCreatedBy("Admin");
+
         Customer savedCustomer = customerRepository.save(customer);
 
         accountsRepository.save(createAccount(savedCustomer));
@@ -50,8 +49,7 @@ public class AccountsService {
         account.setAccountType("Savings");
         account.setBranchAddress("Amman, Jordan");
 
-        account.setCreatedAt(LocalDateTime.now());
-        account.setCreatedBy("Admin");
+
 
         return account;
     }
