@@ -10,7 +10,9 @@ import com.yzn.accounts.model.Accounts;
 import com.yzn.accounts.model.Customer;
 import com.yzn.accounts.repository.AccountsRepository;
 import com.yzn.accounts.repository.CustomerRepository;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -68,6 +70,8 @@ public class AccountsService {
     return customerDTO;
     }
 
+    @Transactional
+    @Modifying
     public CustomerDTO updateAccount(CustomerDTO customerDTO) {
        AccountsDTO accountsDTO = customerDTO.getAccountsDTO();
 
@@ -88,4 +92,17 @@ public class AccountsService {
        }
        return customerDTO;
     }
+
+    @Transactional
+    @Modifying
+    public void deleteAccount(String mobileNumber) {
+
+        Customer customer = customerRepository.findByMobileNumber(mobileNumber)
+                .orElseThrow(() -> new ResourceNotFoundException("Customer", "Mobile Number", mobileNumber));
+        Long customerId = customer.getCustomerId();
+
+        accountsRepository.deleteByCustomerId(customerId);
+        customerRepository.deleteById(customerId);
+    }
+
 }

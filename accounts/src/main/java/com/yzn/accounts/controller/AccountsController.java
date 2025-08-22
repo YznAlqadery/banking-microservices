@@ -39,4 +39,10 @@ public class AccountsController {
         CustomerDTO updatedCustomer = accountsService.updateAccount(customerDTO);
         return ResponseEntity.status(HttpStatus.OK).body(updatedCustomer);
     }
+
+    @DeleteMapping("/delete")
+    public ResponseEntity<ResponseDTO> deleteAccount(@RequestParam("mobileNumber") String mobileNumber) {
+        accountsService.deleteAccount(mobileNumber);
+        return ResponseEntity.status(HttpStatus.OK).body(new ResponseDTO("200", "Account deleted successfully"));
+    }
 }
