@@ -67,4 +67,26 @@ public class AccountsService {
 
     return customerDTO;
     }
+
+    public CustomerDTO updateAccount(CustomerDTO customerDTO) {
+       AccountsDTO accountsDTO = customerDTO.getAccountsDTO();
+
+       if(accountsDTO != null) {
+           Accounts accounts = accountsRepository.findById(accountsDTO.getAccountNumber())
+                   .orElseThrow(() -> new ResourceNotFoundException("Account", "Account Number", accountsDTO.getAccountNumber().toString()));
+
+           AccountsMapper.mapToAccounts(accountsDTO, accounts);
+           accounts = accountsRepository.save(accounts);
+
+           Long customerId = accounts.getCustomerId();
+           Customer customer = customerRepository.findById(customerId)
+                   .orElseThrow(() -> new ResourceNotFoundException("Customer", "Customer Id", customerId.toString()));
+
+           CustomerMapper.mapToCustomer(customerDTO, customer);
+           customer = customerRepository.save(customer);
+
+           CustomerDTO customerDto = CustomerMapper.mapToCustomerDto(customer, new CustomerDTO());
+       }
+       return customerDTO;
+    }
 }

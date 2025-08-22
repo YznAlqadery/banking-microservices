@@ -34,4 +34,9 @@ public class AccountsController {
 
     }
 
+    @PutMapping("/update")
+    public ResponseEntity<CustomerDTO> updateAccount(@RequestBody CustomerDTO customerDTO) {
+        accountsService.updateAccount(customerDTO);
+        return ResponseEntity.status(HttpStatus.OK).body(customerDTO);
+    }
 }
