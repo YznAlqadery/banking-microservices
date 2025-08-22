@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.http.HttpStatus;
 
+import java.time.LocalDateTime;
+
 @Data
 @AllArgsConstructor
 public class ErrorResponseDTO {
@@ -14,6 +16,6 @@ public class ErrorResponseDTO {
 
     private String errorMessage;
 
-    private String errorTime;
+    private LocalDateTime errorTime;
 
 }
