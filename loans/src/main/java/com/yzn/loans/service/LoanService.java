@@ -23,16 +23,15 @@ public class LoanService {
         return loanRepository.findAll()
                 .stream()
                 .map(
-                        loans -> LoansMapper.mapToLoansDTO(Optional.ofNullable(loans), new LoansDTO())
+                        loans -> LoansMapper.mapToLoansDTO(loans, new LoansDTO())
                 )
                 .toList();
     }
 
     public LoansDTO getLoanDetails(String mobileNumber){
-        Optional<Loans> loans = loanRepository.findByMobileNumber(mobileNumber);
-        if(loans.isEmpty()){
-            throw new ResourceNotFoundException("Loan", "mobileNumber", mobileNumber);
-        }
+        Loans loans = loanRepository.findByMobileNumber(mobileNumber)
+                .orElseThrow(() -> new ResourceNotFoundException("Loan", "mobileNumber", mobileNumber));
+
         return LoansMapper.mapToLoansDTO(loans, new LoansDTO());
     }
 
@@ -73,7 +72,7 @@ public class LoanService {
        loans.setAmountPaid(loansDTO.getAmountPaid());
        loans.setOutstandingAmount(loansDTO.getOutstandingAmount());
        loanRepository.save(loans);
-       return LoansMapper.mapToLoansDTO(Optional.of(loans), new LoansDTO());
+       return LoansMapper.mapToLoansDTO(loans, new LoansDTO());
     }
 }
 

@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public class LoansMapper {
 
-    public static LoansDTO mapToLoansDTO(Optional<Loans> loans, LoansDTO loansDTO) {
+    public static LoansDTO mapToLoansDTO(Loans loans, LoansDTO loansDTO) {
         loansDTO.setMobileNumber(loans.getMobileNumber());
         loansDTO.setLoanNumber(loans.getLoanNumber());
         loansDTO.setLoanType(loans.getLoanType());
