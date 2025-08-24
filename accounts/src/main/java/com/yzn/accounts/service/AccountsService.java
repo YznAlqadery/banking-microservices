@@ -14,8 +14,7 @@ import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
-
-import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -66,6 +65,19 @@ public class AccountsService {
     customerDTO.setAccountsDTO(AccountsMapper.mapToAccountsDto(account, new AccountsDTO()));
 
     return customerDTO;
+    }
+
+    public List<CustomerDTO> getAllAccounts(){
+        List<Customer> customers = customerRepository.findAll();
+
+        List<Accounts> accounts = accountsRepository.findAll();
+
+        return customers.stream().map(customer -> {
+            CustomerDTO customerDTO = CustomerMapper.mapToCustomerDto(customer, new CustomerDTO());
+            customerDTO.setAccountsDTO(AccountsMapper.mapToAccountsDto(accounts.stream().filter(account -> account.getCustomerId().equals(customer.getCustomerId())).findFirst().get(), new AccountsDTO()));
+            return customerDTO;
+        }).toList();
+
     }
 
     @Transactional
