@@ -10,6 +10,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -97,7 +98,7 @@ public class LoansController {
             )
     }
     )
-    public ResponseEntity<ResponseDTO> createLoan(@RequestParam String mobileNumber) {
+    public ResponseEntity<ResponseDTO> createLoan(@Pattern(regexp = "(^$|[0-9]{10})", message = "Mobile number should be 10 digits") @RequestParam String mobileNumber) {
         loanService.createLoan(mobileNumber);
         return ResponseEntity.status(HttpStatus.CREATED).body(new ResponseDTO("201","Loan created successfully"));
     }

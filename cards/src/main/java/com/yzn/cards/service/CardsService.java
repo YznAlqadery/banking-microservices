@@ -10,6 +10,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 
 @Service
@@ -33,9 +34,10 @@ public class CardsService {
     }
 
     public CardsDTO createCard(String mobileNumber) {
-        Cards cards = cardsRepository.findByMobileNumber(mobileNumber).orElseThrow(
-                () -> new CardAlreadyExistsException("Card already registered with given mobileNumber "+mobileNumber)
-        );
+        Optional<Cards> card = cardsRepository.findByMobileNumber(mobileNumber);
+        if (card.isPresent()) {
+            throw new CardAlreadyExistsException("Card already registered with given mobileNumber " + mobileNumber);
+        }
         Cards newCard = createNewCard(mobileNumber);
         return CardsMapper.cardsToCardsDTO(cardsRepository.save(newCard), new CardsDTO());
     }
@@ -52,16 +54,12 @@ public class CardsService {
         return newCard;
     }
 
-    public CardsDTO updateCard(CardsDTO cardsDTO) {
-        Cards cards = cardsRepository.findByCardNumber(cardsDTO.getCardNumber()).orElseThrow(
-                () -> new ResourceNotFoundException("Card", "cardNumber", cardsDTO.getCardNumber())
-        );
-        cards.setCardType(cardsDTO.getCardType());
-        cards.setTotalLimit(cardsDTO.getTotalLimit());
-        cards.setAmountUsed(cardsDTO.getAmountUsed());
-        cards.setAvailableAmount(cardsDTO.getAvailableAmount());
-        return CardsMapper.cardsToCardsDTO(cardsRepository.save(cards), new CardsDTO());
-
+    public boolean updateCard(CardsDTO cardsDto) {
+        Cards cards = cardsRepository.findByCardNumber(cardsDto.getCardNumber()).orElseThrow(
+                () -> new ResourceNotFoundException("Card", "CardNumber", cardsDto.getCardNumber()));
+        CardsMapper.cardsDTOToCards(cardsDto, cards);
+        cardsRepository.save(cards);
+        return true;
     }
 
     public void deleteCard(String mobileNumber) {

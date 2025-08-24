@@ -151,9 +151,15 @@ public class CardsController {
             )
     })
     @PutMapping("/update")
-    public ResponseEntity<ResponseDTO> updateCard(@Valid @RequestBody CardsDTO cardsDto) {
-
-        return ResponseEntity.status(HttpStatus.OK).body(new ResponseDTO("200", "Card updated successfully"));
-
-    }
-}
+    public ResponseEntity<ResponseDTO> updateCardDetails(@Valid @RequestBody CardsDTO cardsDto) {
+        boolean isUpdated = cardsService.updateCard(cardsDto);
+        if(isUpdated) {
+            return ResponseEntity
+                    .status(HttpStatus.OK)
+                    .body(new ResponseDTO("200", "Card updated successfully"));
+        }else{
+            return ResponseEntity
+                    .status(HttpStatus.EXPECTATION_FAILED)
+                    .body(new ResponseDTO("417", "Card not updated"));
+        }
+    }}
