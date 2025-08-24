@@ -3,9 +3,11 @@ package com.yzn.loans.mappers;
 import com.yzn.loans.dto.LoansDTO;
 import com.yzn.loans.model.Loans;
 
+import java.util.Optional;
+
 public class LoansMapper {
 
-    public static LoansDTO mapToLoansDTO(Loans loans, LoansDTO loansDTO) {
+    public static LoansDTO mapToLoansDTO(Optional<Loans> loans, LoansDTO loansDTO) {
         loansDTO.setMobileNumber(loans.getMobileNumber());
         loansDTO.setLoanNumber(loans.getLoanNumber());
         loansDTO.setLoanType(loans.getLoanType());

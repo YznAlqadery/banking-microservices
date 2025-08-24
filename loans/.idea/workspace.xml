@@ -6,7 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="2ebae3e5-1755-4584-94b9-700cfb73468d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yzn/loans/LoansApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yzn/loans/LoansApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yzn/loans/dto/ErrorResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yzn/loans/dto/ErrorResponseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yzn/loans/dto/LoansDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yzn/loans/dto/LoansDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yzn/loans/dto/ResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yzn/loans/dto/ResponseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yzn/loans/mappers/LoansMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yzn/loans/mappers/LoansMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yzn/loans/model/BaseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yzn/loans/model/BaseEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/yzn/loans/model/Loans.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yzn/loans/model/Loans.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yzn/loans/repository/LoanRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yzn/loans/repository/LoanRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/yzn/loans/service/LoanService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yzn/loans/service/LoanService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -100,7 +108,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1756061728630</updated>
-      <workItem from="1756062488732" duration="810000" />
+      <workItem from="1756062488732" duration="4335000" />
     </task>
     <servers />
   </component>
