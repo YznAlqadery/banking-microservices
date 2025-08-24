@@ -9,7 +9,9 @@ import jakarta.validation.constraints.PositiveOrZero;
 import lombok.Data;
 import lombok.Setter;
 
-@Schema(description = "Loans Object")
+@Schema(
+        name = "Loans",
+        description = "Loans Object")
 @Data
 public class LoansDTO {
 
