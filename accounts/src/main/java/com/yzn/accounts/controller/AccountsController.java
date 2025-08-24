@@ -1,9 +1,12 @@
 package com.yzn.accounts.controller;
 
 import com.yzn.accounts.dto.CustomerDTO;
+import com.yzn.accounts.dto.ErrorResponseDTO;
 import com.yzn.accounts.dto.ResponseDTO;
 import com.yzn.accounts.service.AccountsService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -76,7 +79,10 @@ public class AccountsController {
             ),
             @ApiResponse(
                     responseCode = "500",
-                    description = "HTTP Status 500 Internal Server Error"
+                    description = "HTTP Status 500 Internal Server Error",
+                    content = @Content(
+                            schema = @Schema(implementation = ErrorResponseDTO.class)
+                    )
             )
     }
     )
@@ -97,7 +103,10 @@ public class AccountsController {
             ),
             @ApiResponse(
                     responseCode = "500",
-                    description = "HTTP Status 500 Internal Server Error"
+                    description = "HTTP Status 500 Internal Server Error",
+                    content = @Content(
+                            schema = @Schema(implementation = ErrorResponseDTO.class)
+                    )
             )
     }
     )
