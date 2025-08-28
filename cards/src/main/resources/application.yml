@@ -14,3 +14,23 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+  config:
+    import:
+      - "application_qa.yml"
+      - "application_prod.yml"
+  profiles:
+    active:
+      - "qa"
+
+build:
+  version: "3.0"
+
+
+cards:
+  message: "Welcome to Cards Service"
+  contact:
+    name: "Laith Hamdan"
+    email: "laith.hamdan@gmail.com"
+  onCallSupport:
+    - (222) 123-4567
+    - (333) 567-8901

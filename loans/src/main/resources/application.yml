@@ -14,3 +14,24 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+  config:
+    import:
+      - "application_qa.yml"
+      - "application_prod.yml"
+  profiles:
+    active:
+      - "prod"
+
+
+build:
+  version: "3.0"
+
+
+loans:
+  message: "Welcome to loans service"
+  contact:
+    name: "Ahmad Mahmoud"
+    email: "ahmad.mahmoud@gmail.com"
+  onCallSupport:
+    - (321) 354-546
+    - (452) 546-981

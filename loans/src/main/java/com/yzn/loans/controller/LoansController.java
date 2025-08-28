@@ -1,6 +1,7 @@
 package com.yzn.loans.controller;
 
 import com.yzn.loans.dto.ErrorResponseDTO;
+import com.yzn.loans.dto.LoansContactInfoDTO;
 import com.yzn.loans.dto.LoansDTO;
 import com.yzn.loans.dto.ResponseDTO;
 import com.yzn.loans.service.LoanService;
@@ -12,6 +13,9 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +26,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api/loans", produces = {MediaType.APPLICATION_JSON_VALUE})
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Validated
 @Tag(
         name = "CRUD REST APIs for Loans in the bank",
@@ -31,6 +35,13 @@ import java.util.List;
 public class LoansController {
 
     private final LoanService loanService;
+
+    @Value("${build.version}")
+    private String buildVersion;
+
+    private final Environment environment;
+
+    private final LoansContactInfoDTO loansContactInfoDTO;
 
     @Operation(
             summary = "Get all loans",
@@ -144,5 +155,79 @@ public class LoansController {
     public ResponseEntity<ResponseDTO> deleteLoan(@RequestParam String mobileNumber) {
         loanService.deleteLoan(mobileNumber);
         return ResponseEntity.status(HttpStatus.OK).body(new ResponseDTO("200","Loan deleted successfully"));
+    }
+
+
+
+    @Operation(
+            summary = "Get Contact Info REST API",
+            description = "To get contact info of the loans microservice"
+    )
+    @ApiResponses(
+            {
+                    @ApiResponse(
+                            responseCode = "200",
+                            description = "HTTP Status 200 OK"
+                    ),
+                    @ApiResponse(
+                            responseCode = "500",
+                            description = "HTTP Status 500 Internal Server Error",
+                            content = @Content(
+                                    schema = @Schema(implementation = ErrorResponseDTO.class)
+                            )
+                    )
+            }
+    )
+    @GetMapping("/contact-info")
+    public ResponseEntity<LoansContactInfoDTO> getContactInfo() {
+        return ResponseEntity.status(HttpStatus.OK).body(loansContactInfoDTO);
+    }
+
+    @Operation(
+            summary = "Get Java Version REST API",
+            description = "To get java version of the loans microservice"
+    )
+    @ApiResponses(
+            {
+                    @ApiResponse(
+                            responseCode = "200",
+                            description = "HTTP Status 200 OK"
+                    ),
+                    @ApiResponse(
+                            responseCode = "500",
+                            description = "HTTP Status 500 Internal Server Error",
+                            content = @Content(
+                                    schema = @Schema(implementation = ErrorResponseDTO.class)
+                            )
+                    )
+            }
+    )
+    @GetMapping("/java-version")
+    public ResponseEntity<String> getEnvironment() {
+        return ResponseEntity.status(HttpStatus.OK).body(environment.getProperty("JAVA_HOME"));
+    }
+
+    @Operation(
+            summary = "Get Build Version REST API",
+            description = "To get build version of the loans microservice"
+    )
+    @ApiResponses(
+            {
+                    @ApiResponse(
+                            responseCode = "200",
+                            description = "HTTP Status 200 OK"
+                    ),
+                    @ApiResponse(
+                            responseCode = "500",
+                            description = "HTTP Status 500 Internal Server Error",
+                            content = @Content(
+                                    schema = @Schema(implementation = ErrorResponseDTO.class)
+                            )
+                    )
+            }
+    )
+    @GetMapping("/version")
+    public ResponseEntity<String> getBuildVersion() {
+        return ResponseEntity.status(HttpStatus.OK).body(buildVersion);
     }
 }
