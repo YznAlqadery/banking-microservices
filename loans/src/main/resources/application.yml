@@ -1,6 +1,10 @@
 server:
   port: 8090
 spring:
+  application:
+    name: "loans"
+  profiles:
+    active: "qa"
   datasource:
     url: jdbc:h2:mem:testdb
     driverClassName: org.h2.Driver
@@ -15,23 +19,25 @@ spring:
       ddl-auto: update
     show-sql: true
   config:
-    import:
-      - "application_qa.yml"
-      - "application_prod.yml"
-  profiles:
-    active:
-      - "prod"
+    import: "optional:configserver:http://localhost:8071"
+#  config:
+#    import:
+#      - "application_qa.yml"
+#      - "application_prod.yml"
+#  profiles:
+#    active:
+#      - "prod"
 
 
-build:
-  version: "3.0"
-
-
-loans:
-  message: "Welcome to loans service"
-  contact:
-    name: "Ahmad Mahmoud"
-    email: "ahmad.mahmoud@gmail.com"
-  onCallSupport:
-    - (321) 354-546
-    - (452) 546-981
+#build:
+#  version: "3.0"
+#
+#
+#loans:
+#  message: "Welcome to loans service"
+#  contact:
+#    name: "Ahmad Mahmoud"
+#    email: "ahmad.mahmoud@gmail.com"
+#  onCallSupport:
+#    - (321) 354-546
+#    - (452) 546-981

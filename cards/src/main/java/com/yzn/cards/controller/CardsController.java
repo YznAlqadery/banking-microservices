@@ -37,12 +37,12 @@ public class CardsController {
 
     private final CardsService cardsService;
 
-    @Value("${build.version}")
-    private String buildVersion;
-
-    private final Environment environment;
-
-    private final CardsContactInfoDTO cardsContactInfoDTO;
+//    @Value("${build.version}")
+//    private String buildVersion;
+//
+//    private final Environment environment;
+//
+  private final CardsContactInfoDTO cardsContactInfoDTO;
 
     @Operation(
             summary = "Get all cards",
@@ -198,53 +198,53 @@ public class CardsController {
     public ResponseEntity<CardsContactInfoDTO> getContactInfo() {
         return ResponseEntity.status(HttpStatus.OK).body(cardsContactInfoDTO);
     }
-
-    @Operation(
-            summary = "Get Java Version REST API",
-            description = "To get java version of the cards microservice"
-    )
-    @ApiResponses(
-            {
-                    @ApiResponse(
-                            responseCode = "200",
-                            description = "HTTP Status 200 OK"
-                    ),
-                    @ApiResponse(
-                            responseCode = "500",
-                            description = "HTTP Status 500 Internal Server Error",
-                            content = @Content(
-                                    schema = @Schema(implementation = ErrorResponseDTO.class)
-                            )
-                    )
-            }
-    )
-    @GetMapping("/java-version")
-    public ResponseEntity<String> getEnvironment() {
-        return ResponseEntity.status(HttpStatus.OK).body(environment.getProperty("JAVA_HOME"));
-    }
-
-    @Operation(
-            summary = "Get Build Version REST API",
-            description = "To get build version of the cards microservice"
-    )
-    @ApiResponses(
-            {
-                    @ApiResponse(
-                            responseCode = "200",
-                            description = "HTTP Status 200 OK"
-                    ),
-                    @ApiResponse(
-                            responseCode = "500",
-                            description = "HTTP Status 500 Internal Server Error",
-                            content = @Content(
-                                    schema = @Schema(implementation = ErrorResponseDTO.class)
-                            )
-                    )
-            }
-    )
-    @GetMapping("/version")
-    public ResponseEntity<String> getBuildVersion() {
-        return ResponseEntity.status(HttpStatus.OK).body(buildVersion);
-    }
+//
+//    @Operation(
+//            summary = "Get Java Version REST API",
+//            description = "To get java version of the cards microservice"
+//    )
+//    @ApiResponses(
+//            {
+//                    @ApiResponse(
+//                            responseCode = "200",
+//                            description = "HTTP Status 200 OK"
+//                    ),
+//                    @ApiResponse(
+//                            responseCode = "500",
+//                            description = "HTTP Status 500 Internal Server Error",
+//                            content = @Content(
+//                                    schema = @Schema(implementation = ErrorResponseDTO.class)
+//                            )
+//                    )
+//            }
+//    )
+//    @GetMapping("/java-version")
+//    public ResponseEntity<String> getEnvironment() {
+//        return ResponseEntity.status(HttpStatus.OK).body(environment.getProperty("JAVA_HOME"));
+//    }
+//
+//    @Operation(
+//            summary = "Get Build Version REST API",
+//            description = "To get build version of the cards microservice"
+//    )
+//    @ApiResponses(
+//            {
+//                    @ApiResponse(
+//                            responseCode = "200",
+//                            description = "HTTP Status 200 OK"
+//                    ),
+//                    @ApiResponse(
+//                            responseCode = "500",
+//                            description = "HTTP Status 500 Internal Server Error",
+//                            content = @Content(
+//                                    schema = @Schema(implementation = ErrorResponseDTO.class)
+//                            )
+//                    )
+//            }
+//    )
+//    @GetMapping("/version")
+//    public ResponseEntity<String> getBuildVersion() {
+//        return ResponseEntity.status(HttpStatus.OK).body(buildVersion);
+//    }
 }
 

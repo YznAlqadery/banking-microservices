@@ -1,0 +1,17 @@
+#spring:
+#  config:
+#    activate:
+#      on-profile: "qa"
+
+
+build:
+  version: "2.0"
+
+cards:
+  message: "Welcome to Cards Service related to QA environment"
+  contact:
+    name: "Majd Omar"
+    email: "majd.omar@gmail.com"
+  onCallSupport:
+    - (542) 233-4567
+    - (989) 143-8901

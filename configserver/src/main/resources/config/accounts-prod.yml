@@ -1,0 +1,16 @@
+#spring:
+#  config:
+#    activate:
+#      on-profile: "prod"
+
+build:
+  version: "1.0"
+
+accounts:
+  message: "Welcome to Accounts Service related to PROD environment"
+  contact:
+    name: "Rashed Alsyouf - Product Owner"
+    email: "rashedalsyouf@gmail.com"
+  onCallSupport:
+    - (777) 123-4567
+    - (777) 123-4568

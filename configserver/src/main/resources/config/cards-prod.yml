@@ -1,0 +1,18 @@
+#spring:
+#  config:
+#    activate:
+#      on-profile: "prod"
+
+
+build:
+  version: "4.0"
+
+
+cards:
+  message: "Welcome to Cards Service related to PROD environment"
+  contact:
+    name: "Ra'ad Obaidat"
+    email: "raad.obaidat@gmail.com"
+  onCallSupport:
+    - (761) 331-2222
+    - (662) 198-2312

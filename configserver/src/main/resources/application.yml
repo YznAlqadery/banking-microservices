@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: "configserver"
+  profiles:
+    active: git
+  #active: "native" # only for class path and file system locations
+  cloud:
+    config:
+      server:
+        git:
+          uri: "https://github.com/YznAlqadery/bank-config.git"
+          default-label: main # Helpful if you have multiple branches
+          timeout: 5 # Wait for 5 seconds for the config server to start
+          clone-on-start: true # Clone the repository when the server starts in the local system
+          force-pull: true # Force pull the repository when the server starts
+#        native:
+#          #search-locations: "classpath:/config"
+#          search-locations: "file:///C://Users//yazan//Documents//config" # File system path
+
+encrypt:
+  key: ${SECRET_KEY}
+
+server:
+  port: 8071

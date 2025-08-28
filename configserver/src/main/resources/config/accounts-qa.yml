@@ -1,0 +1,16 @@
+#spring:
+#  config:
+#    activate:
+#      on-profile: "qa"
+
+build:
+  version: "2.0"
+
+accounts:
+  message: "Welcome to Accounts Service related to QA environment"
+  contact:
+    name: "Aws Alqadery - QA Lead"
+    email: "awsalqadery@gmail.com"
+  onCallSupport:
+    - (666) 123-4567
+    - (666) 123-4568

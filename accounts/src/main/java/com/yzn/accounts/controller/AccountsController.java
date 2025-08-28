@@ -39,13 +39,13 @@ public class AccountsController {
     private final AccountsService accountsService;
 
 
-    @Value("${build.version}")
-    private String buildVersion;
-
-
-    private final Environment environment;
-
-    private final AccountsContactInfoDTO accountsContactInfoDTO;
+//    @Value("${build.version}")
+//    private String buildVersion;
+//
+//
+//    private final Environment environment;
+//
+      private final AccountsContactInfoDTO accountsContactInfoDTO;
 
     @Operation(
             summary = "Create Account REST API",
@@ -145,60 +145,60 @@ public class AccountsController {
         return accountsService.getAllAccounts();
     }
 
-    @Operation(
-            summary = "Get Build Version REST API",
-            description = "To get the build version of the Accounts Service"
-    )
-    @ApiResponses(
-            {
-                    @ApiResponse(
-                            responseCode = "200",
-                            description = "HTTP Status 200 OK"
-                    ),
-                    @ApiResponse(
-                            responseCode = "500",
-                            description = "HTTP Status 500 Internal Server Error",
-                            content = @Content(
-                                    schema = @Schema(implementation = ErrorResponseDTO.class)
-                            )
-                    )
-            }
-    )
-    @GetMapping("/version")
-    public ResponseEntity<String> getBuildVersion() {
-        return ResponseEntity
-                .status(HttpStatus.OK)
-                .body(buildVersion);
-    }
-
-
-    @Operation(
-            summary = "Get Java Version REST API",
-            description = "To get the Java version of the Accounts Service"
-    )
-    @ApiResponses(
-            {
-                    @ApiResponse(
-                            responseCode = "200",
-                            description = "HTTP Status 200 OK"
-                    ),
-                    @ApiResponse(
-                            responseCode = "500",
-                            description = "HTTP Status 500 Internal Server Error",
-                            content = @Content(
-                                    schema = @Schema(implementation = ErrorResponseDTO.class)
-                            )
-                    )
-            }
-    )
-    @GetMapping("/java-version")
-    public ResponseEntity<String> getJavaVersion() {
-        return ResponseEntity
-                .status(HttpStatus.OK)
-                .body(environment.getProperty("JAVA_HOME"));
-    }
-
-
+//    @Operation(
+//            summary = "Get Build Version REST API",
+//            description = "To get the build version of the Accounts Service"
+//    )
+//    @ApiResponses(
+//            {
+//                    @ApiResponse(
+//                            responseCode = "200",
+//                            description = "HTTP Status 200 OK"
+//                    ),
+//                    @ApiResponse(
+//                            responseCode = "500",
+//                            description = "HTTP Status 500 Internal Server Error",
+//                            content = @Content(
+//                                    schema = @Schema(implementation = ErrorResponseDTO.class)
+//                            )
+//                    )
+//            }
+//    )
+//    @GetMapping("/version")
+//    public ResponseEntity<String> getBuildVersion() {
+//        return ResponseEntity
+//                .status(HttpStatus.OK)
+//                .body(buildVersion);
+//    }
+//
+//
+//    @Operation(
+//            summary = "Get Java Version REST API",
+//            description = "To get the Java version of the Accounts Service"
+//    )
+//    @ApiResponses(
+//            {
+//                    @ApiResponse(
+//                            responseCode = "200",
+//                            description = "HTTP Status 200 OK"
+//                    ),
+//                    @ApiResponse(
+//                            responseCode = "500",
+//                            description = "HTTP Status 500 Internal Server Error",
+//                            content = @Content(
+//                                    schema = @Schema(implementation = ErrorResponseDTO.class)
+//                            )
+//                    )
+//            }
+//    )
+//    @GetMapping("/java-version")
+//    public ResponseEntity<String> getJavaVersion() {
+//        return ResponseEntity
+//                .status(HttpStatus.OK)
+//                .body(environment.getProperty("JAVA_HOME"));
+//    }
+//
+//
     @Operation(
             summary = "Get Contact Info REST API",
             description = "To get the contact info of the Accounts Service"

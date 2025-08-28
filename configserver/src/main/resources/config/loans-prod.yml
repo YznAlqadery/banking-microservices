@@ -1,0 +1,17 @@
+#spring:
+#  config:
+#    activate:
+#      on-profile: "prod"
+
+build:
+  version: "2.0"
+
+
+loans:
+  message: "Welcome to loans service related to the production environment"
+  contact:
+    name: "John Doe"
+    email: "john.doe@gmail.com"
+  onCallSupport:
+    - (555) 555-5555
+    - (555) 555-5556

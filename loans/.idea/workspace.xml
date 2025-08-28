@@ -5,18 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ebae3e5-1755-4584-94b9-700cfb73468d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../accounts/src/main/java/com/yzn/accounts/AccountsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../accounts/src/main/java/com/yzn/accounts/AccountsApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../configserver/src/main/resources/config/accounts-prod.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../configserver/src/main/resources/config/accounts-qa.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../configserver/src/main/resources/config/accounts.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../configserver/src/main/resources/config/loans-prod.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../configserver/src/main/resources/config/loans-qa.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../configserver/src/main/resources/config/loans.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/banking-app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/banking-app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../accounts/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../accounts/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../accounts/src/main/java/com/yzn/accounts/controller/AccountsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../accounts/src/main/java/com/yzn/accounts/controller/AccountsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../accounts/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../accounts/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../accounts/src/main/resources/application_prod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../accounts/src/main/resources/application_prod.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../accounts/src/main/resources/application_qa.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../accounts/src/main/resources/application_qa.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cards/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../cards/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cards/src/main/java/com/yzn/cards/CardsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../cards/src/main/java/com/yzn/cards/CardsApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cards/src/main/java/com/yzn/cards/controller/CardsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../cards/src/main/java/com/yzn/cards/controller/CardsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cards/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../cards/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cards/src/main/resources/application_prod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../cards/src/main/resources/application_prod.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cards/src/main/resources/application_qa.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../cards/src/main/resources/application_qa.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yzn/loans/LoansApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yzn/loans/LoansApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/yzn/loans/controller/LoansController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yzn/loans/controller/LoansController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application_prod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application_prod.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application_qa.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application_qa.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,6 +108,7 @@
     <configuration name="LoansApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="loans" />
+      <option name="PROGRAM_PARAMETERS" value="--spring.profiles.active=prod" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.yzn.loans.LoansApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -123,6 +135,7 @@
       <workItem from="1756073728349" duration="983000" />
       <workItem from="1756233200994" duration="3856000" />
       <workItem from="1756331321350" duration="2158000" />
+      <workItem from="1756382762801" duration="5387000" />
     </task>
     <servers />
   </component>
