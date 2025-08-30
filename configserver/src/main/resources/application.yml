@@ -13,11 +13,11 @@ spring:
           timeout: 5 # Wait for 5 seconds for the config server to start
           clone-on-start: true # Clone the repository when the server starts in the local system
           force-pull: true # Force pull the repository when the server starts
-  rabbitmq:
-    host: "localhost"
-    port: 5672
-    username: "guest"
-    password: "guest"
+#  rabbitmq:
+#    host: "localhost"
+#    port: 5672
+#    username: "guest"
+#    password: "guest"
 #        native:
 #          #search-locations: "classpath:/config"
 #          search-locations: "file:///C://Users//yazan//Documents//config" # File system path

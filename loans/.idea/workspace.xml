@@ -6,16 +6,20 @@
   <component name="ChangeListManager">
     <list default="true" id="2ebae3e5-1755-4584-94b9-700cfb73468d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../accounts/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../accounts/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../accounts/src/main/java/com/yzn/accounts/dto/AccountsContactInfoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../accounts/src/main/java/com/yzn/accounts/dto/AccountsContactInfoDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../accounts/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../accounts/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../accounts/src/main/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../accounts/src/main/resources/schema.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cards/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../cards/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cards/src/main/java/com/yzn/cards/dto/CardsContactInfoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../cards/src/main/java/com/yzn/cards/dto/CardsContactInfoDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cards/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../cards/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../configserver/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../configserver/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../configserver/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../configserver/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docker-compose/default/common-config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose/default/common-config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docker-compose/default/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose/default/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docker-compose/prod/common-config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose/prod/common-config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docker-compose/prod/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose/prod/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docker-compose/qa/common-config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose/qa/common-config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docker-compose/qa/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose/qa/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yzn/loans/dto/LoansContactInfoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yzn/loans/dto/LoansContactInfoDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -124,7 +128,8 @@
       <workItem from="1756073728349" duration="983000" />
       <workItem from="1756233200994" duration="3856000" />
       <workItem from="1756331321350" duration="2158000" />
-      <workItem from="1756382762801" duration="10895000" />
+      <workItem from="1756382762801" duration="10897000" />
+      <workItem from="1756571029208" duration="5856000" />
     </task>
     <servers />
   </component>
