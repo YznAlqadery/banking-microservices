@@ -5,20 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ebae3e5-1755-4584-94b9-700cfb73468d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/banking-app.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../accounts/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../accounts/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../accounts/src/main/java/com/yzn/accounts/AccountsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../accounts/src/main/java/com/yzn/accounts/AccountsApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../accounts/src/main/java/com/yzn/accounts/mapper/CustomerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../accounts/src/main/java/com/yzn/accounts/mapper/CustomerMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../accounts/src/main/java/com/yzn/accounts/controller/AccountsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../accounts/src/main/java/com/yzn/accounts/controller/AccountsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../accounts/src/main/java/com/yzn/accounts/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../accounts/src/main/java/com/yzn/accounts/controller/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../accounts/src/main/java/com/yzn/accounts/service/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../accounts/src/main/java/com/yzn/accounts/service/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../accounts/src/main/java/com/yzn/accounts/service/client/CardsFeignClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../accounts/src/main/java/com/yzn/accounts/service/client/CardsFeignClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../accounts/src/main/java/com/yzn/accounts/service/client/LoansFeignClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../accounts/src/main/java/com/yzn/accounts/service/client/LoansFeignClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../accounts/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../accounts/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cards/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../cards/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cards/src/main/java/com/yzn/cards/controller/CardsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../cards/src/main/java/com/yzn/cards/controller/CardsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cards/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../cards/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../configserver/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../configserver/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docker-compose/default/common-config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose/default/common-config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docker-compose/default/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose/default/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docker-compose/prod/common-config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose/prod/common-config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docker-compose/prod/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose/prod/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docker-compose/qa/common-config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose/qa/common-config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docker-compose/qa/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose/qa/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../eurekaserver/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../eurekaserver/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yzn/loans/controller/LoansController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yzn/loans/controller/LoansController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,6 +137,7 @@
       <workItem from="1756382762801" duration="10897000" />
       <workItem from="1756571029208" duration="7250000" />
       <workItem from="1756647905850" duration="3155000" />
+      <workItem from="1756844493874" duration="4927000" />
     </task>
     <servers />
   </component>

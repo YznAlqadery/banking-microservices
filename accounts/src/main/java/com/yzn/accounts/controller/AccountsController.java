@@ -33,7 +33,7 @@ import java.util.List;
 @Validated // -> Tell Spring to validate the input parameters of the method by default
 @RequiredArgsConstructor
 @RestController
-@RequestMapping(path = "/api/accounts", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(path = "/api", produces = MediaType.APPLICATION_JSON_VALUE)
 public class AccountsController {
 
     private final AccountsService accountsService;

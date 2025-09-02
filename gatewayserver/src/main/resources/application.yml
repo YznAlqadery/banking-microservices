@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: "gatewayserver"
+  config:
+    import: "optional:configserver:http://localhost:8071"
+  cloud:
+    gateway:
+      server:
+        webflux:
+          discovery:
+            locator: # This will enable service discovery for routes in the gateway server
+              enabled: false
+              lower-case-service-id: true
+
+info:
+  app:
+    name: "Gateway Server"
+    description: "Gateway Server for banking app"
+    version: "1.0.0"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*" # Enable and expose all endpoints
+  endpoint:
+    gateway:
+      access: unrestricted
+  info:
+    env:
+      enabled: true
+
+logging:
+  level:
+    com:
+      yzn:
+        gatewayserver: DEBUG
+
+

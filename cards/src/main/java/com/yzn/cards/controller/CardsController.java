@@ -13,10 +13,9 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Pattern;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.env.Environment;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -26,7 +25,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/api/cards", produces = {MediaType.APPLICATION_JSON_VALUE})
+@RequestMapping(value = "/api", produces = {MediaType.APPLICATION_JSON_VALUE})
 @RequiredArgsConstructor
 @Tag(
         name = "CRUD REST APIs for Cards in bank",
@@ -34,6 +33,8 @@ import java.util.List;
 )
 @Validated
 public class CardsController {
+
+    private static final Logger logger = LoggerFactory.getLogger(CardsController.class);
 
     private final CardsService cardsService;
 
@@ -84,7 +85,11 @@ public class CardsController {
             description = "Get card details by mobile number"
     )
     @GetMapping("/details")
-    public ResponseEntity<CardsDTO> getCardDetails( @Pattern(regexp="(^$|[0-9]{10})",message = "Mobile Number must be 10 digits") @RequestParam String mobileNumber) {
+    public ResponseEntity<CardsDTO> getCardDetails(
+            @RequestHeader("qaderi-correlation-id") String correlationId,
+            @Pattern(regexp="(^$|[0-9]{10})",message = "Mobile Number must be 10 digits")
+            @RequestParam String mobileNumber) {
+        logger.debug("qaderi-correlation-id found: {} ", correlationId);
         return ResponseEntity.status(HttpStatus.OK).body(cardsService.getCardDetails(mobileNumber));
     }
 

@@ -14,6 +14,8 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
@@ -25,7 +27,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/api/loans", produces = {MediaType.APPLICATION_JSON_VALUE})
+@RequestMapping(value = "/api", produces = {MediaType.APPLICATION_JSON_VALUE})
 @RequiredArgsConstructor
 @Validated
 @Tag(
@@ -33,6 +35,8 @@ import java.util.List;
         description = "CRUD REST APIs to CREATE, READ, UPDATE, DELETE loans"
 )
 public class LoansController {
+
+    private static final Logger logger = LoggerFactory.getLogger(LoansController.class);
 
     private final LoanService loanService;
 
@@ -85,7 +89,10 @@ public class LoansController {
     }
     )
     @GetMapping("/details")
-    public ResponseEntity<LoansDTO> getLoanDetails(@RequestParam String mobileNumber) {
+    public ResponseEntity<LoansDTO> getLoanDetails(
+            @RequestHeader("qaderi-correlation-id") String correlationId,
+            @RequestParam String mobileNumber) {
+        logger.debug("qaderi-correlation-id found: {} ", correlationId);
         return ResponseEntity.ok(loanService.getLoanDetails(mobileNumber));
     }
 
