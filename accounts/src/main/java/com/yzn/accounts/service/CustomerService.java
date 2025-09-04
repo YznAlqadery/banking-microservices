@@ -26,7 +26,7 @@ public class CustomerService {
     private CardsFeignClient cardsFeignClient;
     private LoansFeignClient loansFeignClient;
 
-    public CustomerDetailsDTO getCustomerDetails(String mobileNumber, String correlationId){
+    public CustomerDetailsDTO getCustomerDetails(String mobileNumber, String correlationId) {
         Customer customer = customerRepository.findByMobileNumber(mobileNumber)
                 .orElseThrow(() -> new ResourceNotFoundException("Customer", "Mobile Number", mobileNumber));
 
@@ -36,12 +36,16 @@ public class CustomerService {
         CustomerDetailsDTO customerDetailsDTO = CustomerMapper.mapToCustomerDetailsDto(customer, new CustomerDetailsDTO());
         customerDetailsDTO.setAccountsDTO(AccountsMapper.mapToAccountsDto(accounts, new AccountsDTO()));
 
-        ResponseEntity<LoansDTO> loansDTOResponseEntity = loansFeignClient.getLoanDetails(correlationId,mobileNumber);
-        customerDetailsDTO.setLoansDTO(loansDTOResponseEntity.getBody());
+        ResponseEntity<LoansDTO> loansDTOResponseEntity = loansFeignClient.getLoanDetails(correlationId, mobileNumber);
+        if (loansDTOResponseEntity != null) {
+            customerDetailsDTO.setLoansDTO(loansDTOResponseEntity.getBody());
+        }
 
-        ResponseEntity<CardsDTO> cardsDTOResponseEntity = cardsFeignClient.getCardDetails(correlationId,mobileNumber);
-        customerDetailsDTO.setCardsDTO(cardsDTOResponseEntity.getBody());
-
+        ResponseEntity<CardsDTO> cardsDTOResponseEntity = cardsFeignClient.getCardDetails(correlationId, mobileNumber);
+        if (cardsDTOResponseEntity != null) {
+            customerDetailsDTO.setCardsDTO(cardsDTOResponseEntity.getBody());
+        }
         return customerDetailsDTO;
     }
 }
+

@@ -4,18 +4,20 @@ spring:
   application:
     name: "loans"
   profiles:
-    active: "qa"
+    active: "prod"
+  config:
+    import: "optional:configserver:http://localhost:8071/"
   datasource:
     url: jdbc:mysql://localhost:3307/loansdb
     username: root
     password: root
   jpa:
     show-sql: true
+    hibernate:
+      ddl-auto: update
   sql:
     init:
       mode: always
-  config:
-    import: "optional:configserver:http://localhost:8071"
 #  rabbitmq:
 #    host: "localhost"
 #    port: 5672

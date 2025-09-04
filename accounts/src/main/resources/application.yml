@@ -5,6 +5,12 @@ spring:
     name: "accounts"
   profiles:
     active: "prod"
+  config:
+    import: "optional:configserver:http://localhost:8071/"
+  cloud:
+    openfeign:
+      circuitbreaker:
+        enabled: true
   datasource:
     url: jdbc:mysql://localhost:3309/accountsdb
     username: root
@@ -16,8 +22,6 @@ spring:
   sql:
     init:
       mode: always
-  config:
-    import: "optional:configserver:http://localhost:8071"
 
 eureka:
   instance:
@@ -69,24 +73,32 @@ logging:
       yzn:
         accounts: DEBUG
 
-#  config:
-#    import:
-#      - "application_qa.yml"
-#      - "application_prod.yml"
-#  profiles:
-#    active:
-#      - "qa"
-#
-#build:
-#  version: "3.0"
-#
-#accounts:
-#  message: "Welcome to Accounts Service"
-#  contact:
-#    name: "Yazan"
-#    email: "yazanalqadery@gmail.com"
-#  onCallSupport:
-#    - (555) 123-4567
-#    - (555) 123-4568
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        sliding-window-size: 10 # Number of calls to change the state of the circuit breaker from closed to open
+        permitted-number-of-calls-in-half-open-state: 2 # Allow 2 requests in half-open state, and based on the response of these requests, the circuit breaker will change its state
+        failure-rate-threshold: 50  # If 50% of the requests fail, the circuit breaker will change its state from closed to open
+        wait-duration-in-open-state:
+          seconds: 10   # Wait for 10 seconds before changing the state of the circuit breaker from open to half-open
 
+resilience4j.retry:
+  configs:
+    default:
+      max-attempts: 3
+      wait-duration: 500
+      enable-exponential-backoff: true
+      exponential-backoff-multiplier: 2
+      ignore-exceptions:
+        - java.lang.NullPointerException
+      retry-exceptions:
+        - java.util.concurrent.TimeoutException
+
+resilience4j.ratelimiter:
+  configs:
+    default:
+      timeoutDuration: 1000
+      limit-refresh-period: 5000
+      limitForPeriod: 1
 

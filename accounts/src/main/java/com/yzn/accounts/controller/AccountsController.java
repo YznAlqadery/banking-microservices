@@ -5,6 +5,8 @@ import com.yzn.accounts.dto.CustomerDTO;
 import com.yzn.accounts.dto.ErrorResponseDTO;
 import com.yzn.accounts.dto.ResponseDTO;
 import com.yzn.accounts.service.AccountsService;
+import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
+import io.github.resilience4j.retry.annotation.Retry;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -13,9 +15,6 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Pattern;
-import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
@@ -25,13 +24,13 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.concurrent.TimeoutException;
 
 @Tag(
         name = "CRUD REST APIs for Accounts",
         description = "Create,Update,Get,Delete REST APIs for Accounts"
 )
 @Validated // -> Tell Spring to validate the input parameters of the method by default
-@RequiredArgsConstructor
 @RestController
 @RequestMapping(path = "/api", produces = MediaType.APPLICATION_JSON_VALUE)
 public class AccountsController {
@@ -39,13 +38,19 @@ public class AccountsController {
     private final AccountsService accountsService;
 
 
-//    @Value("${build.version}")
-//    private String buildVersion;
-//
-//
-//    private final Environment environment;
-//
+    @Value("${build.version}")
+    private String buildVersion;
+
+
+    private final Environment environment;
+
       private final AccountsContactInfoDTO accountsContactInfoDTO;
+
+    public AccountsController(AccountsService accountsService, Environment environment, AccountsContactInfoDTO accountsContactInfoDTO) {
+        this.accountsService = accountsService;
+        this.environment = environment;
+        this.accountsContactInfoDTO = accountsContactInfoDTO;
+    }
 
     @Operation(
             summary = "Create Account REST API",
@@ -145,60 +150,74 @@ public class AccountsController {
         return accountsService.getAllAccounts();
     }
 
-//    @Operation(
-//            summary = "Get Build Version REST API",
-//            description = "To get the build version of the Accounts Service"
-//    )
-//    @ApiResponses(
-//            {
-//                    @ApiResponse(
-//                            responseCode = "200",
-//                            description = "HTTP Status 200 OK"
-//                    ),
-//                    @ApiResponse(
-//                            responseCode = "500",
-//                            description = "HTTP Status 500 Internal Server Error",
-//                            content = @Content(
-//                                    schema = @Schema(implementation = ErrorResponseDTO.class)
-//                            )
-//                    )
-//            }
-//    )
-//    @GetMapping("/version")
-//    public ResponseEntity<String> getBuildVersion() {
-//        return ResponseEntity
-//                .status(HttpStatus.OK)
-//                .body(buildVersion);
-//    }
-//
-//
-//    @Operation(
-//            summary = "Get Java Version REST API",
-//            description = "To get the Java version of the Accounts Service"
-//    )
-//    @ApiResponses(
-//            {
-//                    @ApiResponse(
-//                            responseCode = "200",
-//                            description = "HTTP Status 200 OK"
-//                    ),
-//                    @ApiResponse(
-//                            responseCode = "500",
-//                            description = "HTTP Status 500 Internal Server Error",
-//                            content = @Content(
-//                                    schema = @Schema(implementation = ErrorResponseDTO.class)
-//                            )
-//                    )
-//            }
-//    )
-//    @GetMapping("/java-version")
-//    public ResponseEntity<String> getJavaVersion() {
-//        return ResponseEntity
-//                .status(HttpStatus.OK)
-//                .body(environment.getProperty("JAVA_HOME"));
-//    }
-//
-//
+    @Operation(
+            summary = "Get Build Version REST API",
+            description = "To get the build version of the Accounts Service"
+    )
+    @ApiResponses(
+            {
+                    @ApiResponse(
+                            responseCode = "200",
+                            description = "HTTP Status 200 OK"
+                    ),
+                    @ApiResponse(
+                            responseCode = "500",
+                            description = "HTTP Status 500 Internal Server Error",
+                            content = @Content(
+                                    schema = @Schema(implementation = ErrorResponseDTO.class)
+                            )
+                    )
+            }
+    )
+    @Retry(name = "getBuildVersion", fallbackMethod = "getBuildVersionFallback")
+    @GetMapping("/version")
+    public ResponseEntity<String> getBuildVersion() throws TimeoutException {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(buildVersion);
+    }
+
+    public ResponseEntity<String> getBuildVersionFallback(Throwable throwable) {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body("0.9");
+    }
+
+
+
+    @Operation(
+            summary = "Get Java Version REST API",
+            description = "To get the Java version of the Accounts Service"
+    )
+    @ApiResponses(
+            {
+                    @ApiResponse(
+                            responseCode = "200",
+                            description = "HTTP Status 200 OK"
+                    ),
+                    @ApiResponse(
+                            responseCode = "500",
+                            description = "HTTP Status 500 Internal Server Error",
+                            content = @Content(
+                                    schema = @Schema(implementation = ErrorResponseDTO.class)
+                            )
+                    )
+            }
+    )
+    @RateLimiter(name = "getJavaVersion", fallbackMethod = "getJavaVersionFallback")
+    @GetMapping("/java-version")
+    public ResponseEntity<String> getJavaVersion() {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(environment.getProperty("JAVA_HOME"));
+    }
+
+    public ResponseEntity<String> getJavaVersionFallback(Throwable throwable) {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body("Java 17");
+    }
+
     @Operation(
             summary = "Get Contact Info REST API",
             description = "To get the contact info of the Accounts Service"
