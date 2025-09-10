@@ -61,8 +61,9 @@ public class CustomerController {
             @Pattern(regexp = "(^$|[0-9]{10})", message = "Mobile number should be 10 digits")
             String mobileNumber
     ){
-        logger.debug("qaderi-correlation-id found: {}", correlationId);
+        logger.debug("getCustomerDetails method started");
         CustomerDetailsDTO customerDetailsDTO = customerService.getCustomerDetails(mobileNumber, correlationId);
+        logger.debug("getCustomerDetails method ended");
         return ResponseEntity.status(HttpStatus.OK).body(customerDetailsDTO);
     }
 

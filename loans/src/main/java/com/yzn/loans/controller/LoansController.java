@@ -92,8 +92,11 @@ public class LoansController {
     public ResponseEntity<LoansDTO> getLoanDetails(
             @RequestHeader("qaderi-correlation-id") String correlationId,
             @RequestParam String mobileNumber) {
-        logger.debug("qaderi-correlation-id found: {} ", correlationId);
-        return ResponseEntity.ok(loanService.getLoanDetails(mobileNumber));
+        logger.debug("getLoanDetails method started");
+        LoansDTO loansDTO = loanService.getLoanDetails(mobileNumber);
+        logger.debug("getLoanDetails method ended");
+        return ResponseEntity.status(HttpStatus.OK).body(loansDTO);
+
     }
 
     @Operation(

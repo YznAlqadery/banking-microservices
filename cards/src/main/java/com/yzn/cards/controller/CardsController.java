@@ -89,8 +89,10 @@ public class CardsController {
             @RequestHeader("qaderi-correlation-id") String correlationId,
             @Pattern(regexp="(^$|[0-9]{10})",message = "Mobile Number must be 10 digits")
             @RequestParam String mobileNumber) {
-        logger.debug("qaderi-correlation-id found: {} ", correlationId);
-        return ResponseEntity.status(HttpStatus.OK).body(cardsService.getCardDetails(mobileNumber));
+        logger.debug("getCardDetails method started");
+        CardsDTO cardsDTO = cardsService.getCardDetails(mobileNumber);
+        logger.debug("getCardDetails method ended");
+        return ResponseEntity.status(HttpStatus.OK).body(cardsDTO);
     }
 
     @Operation(

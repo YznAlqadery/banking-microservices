@@ -52,6 +52,9 @@ management:
   info:
     env:
       enabled: true
+  metrics: # The Purpose of this is to add tags to the metrics to make it easier to filter and monitor the metrics
+    tags:
+      application: ${spring.application.name}
 
 info:
   app:
@@ -65,6 +68,8 @@ logging:
     com:
       yzn:
         loans: DEBUG
+  pattern:
+    level: "%5p [${spring.application.name},%X{trace_id},%X{span_id}]"
 
 #  config:
 #    import:
