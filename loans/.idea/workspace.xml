@@ -5,12 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ebae3e5-1755-4584-94b9-700cfb73468d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../accounts/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../accounts/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../accounts/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../accounts/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cards/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../cards/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../configserver/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../configserver/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docker-compose/default/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose/default/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docker-compose/prod/.data/minio/.minio.sys/buckets/.bloomcycle.bin/xl.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose/prod/.data/minio/.minio.sys/buckets/.bloomcycle.bin/xl.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docker-compose/prod/.data/minio/.minio.sys/buckets/.usage-cache.bin.bkp/xl.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose/prod/.data/minio/.minio.sys/buckets/.usage-cache.bin.bkp/xl.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docker-compose/prod/.data/minio/.minio.sys/buckets/.usage-cache.bin/xl.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose/prod/.data/minio/.minio.sys/buckets/.usage-cache.bin/xl.meta" afterDir="false" />
@@ -19,19 +13,6 @@
       <change beforePath="$PROJECT_DIR$/../docker-compose/prod/.data/minio/.minio.sys/buckets/loki-data/.usage-cache.bin/xl.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose/prod/.data/minio/.minio.sys/buckets/loki-data/.usage-cache.bin/xl.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docker-compose/prod/.data/minio/.minio.sys/buckets/loki-ruler/.usage-cache.bin.bkp/xl.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose/prod/.data/minio/.minio.sys/buckets/loki-ruler/.usage-cache.bin.bkp/xl.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docker-compose/prod/.data/minio/.minio.sys/buckets/loki-ruler/.usage-cache.bin/xl.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose/prod/.data/minio/.minio.sys/buckets/loki-ruler/.usage-cache.bin/xl.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docker-compose/prod/.data/minio/.minio.sys/tmp/2a435028-415f-43f5-b457-aba222313458" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docker-compose/prod/.data/minio/loki-data/index/index_20343/1757901235-3e411fee1a93-1757901235539156492.tsdb.gz/xl.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docker-compose/prod/.data/minio/loki-data/index/index_20344/1757901235-3e411fee1a93-1757901235539156492.tsdb.gz/xl.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docker-compose/prod/.data/minio/loki-data/index/index_20345/1757901235-3e411fee1a93-1757901235539156492.tsdb.gz/xl.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docker-compose/prod/.data/minio/loki-data/index/index_20346/1757901235-3e411fee1a93-1757901235539156492.tsdb.gz/xl.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docker-compose/prod/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose/prod/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docker-compose/qa/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose/qa/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../eurekaserver/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../eurekaserver/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gatewayserver/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../gatewayserver/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../message/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../message/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../message/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../message/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
