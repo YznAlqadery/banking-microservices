@@ -20,11 +20,15 @@ spring:
           group: ${spring.application.name}
         sendCommunication-out-0:
           destination: send-communication
-  rabbitmq:
-    host: "localhost"
-    port: 5672
-    username: "guest"
-    password: "guest"
+      kafka:
+        binder:
+          brokers:
+            - localhost:9092
+#  rabbitmq:
+#    host: "localhost"
+#    port: 5672
+#    username: "guest"
+#    password: "guest"
 
   datasource:
     url: jdbc:mysql://localhost:3309/accountsdb
