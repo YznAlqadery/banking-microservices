@@ -1,0 +1,6 @@
+dependencies:
+- name: qaderibank-common
+  repository: file://../../qaderibank-common
+  version: 0.1.0
+digest: sha256:064294f21a235f8b2df16fa4fa8aa06aa6cbf7b770ea56f01c6fb7daea46e5fa
+generated: "2025-09-24T23:37:50.5862294+04:00"

@@ -1,0 +1,27 @@
+dependencies:
+- name: qaderibank-common
+  repository: file://../../qaderibank-common
+  version: 0.1.0
+- name: configserver
+  repository: file://../../qaderibank-services/configserver
+  version: 0.1.0
+- name: eurekaserver
+  repository: file://../../qaderibank-services/eurekaserver
+  version: 0.1.0
+- name: accounts
+  repository: file://../../qaderibank-services/accounts
+  version: 0.1.0
+- name: cards
+  repository: file://../../qaderibank-services/cards
+  version: 0.1.0
+- name: loans
+  repository: file://../../qaderibank-services/loans
+  version: 0.1.0
+- name: gatewayserver
+  repository: file://../../qaderibank-services/gatewayserver
+  version: 0.1.0
+- name: messages
+  repository: file://../../qaderibank-services/messages
+  version: 0.1.0
+digest: sha256:f8ab5f10061790f0340a1f11764947a5788f1ebc017b6d0051117ee3bfc7d9e0
+generated: "2025-09-25T00:42:58.3569726+04:00"
